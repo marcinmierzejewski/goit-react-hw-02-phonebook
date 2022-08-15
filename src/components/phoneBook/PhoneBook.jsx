@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { INITIAL_STATE } from 'components/App';
 
-
+const INITIAL_STATE = {
+  name: "",
+  number: ""
+};
 
 export class PhoneBook extends Component {
   state = {    
