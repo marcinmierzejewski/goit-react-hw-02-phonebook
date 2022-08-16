@@ -1,10 +1,10 @@
-export const SearchFilter = ({searchByName}) => {
+export const SearchFilter = ({ searchByName }) => {
   return (
     <div>
-       <label>
+      <label>
         Find contacts by name
-        <input type="text" onChange={searchByName}/>
-       </label>
+        <input type="text" onChange={searchByName} />
+      </label>
     </div>
-  )
-}
+  );
+};

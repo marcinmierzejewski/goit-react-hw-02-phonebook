@@ -1,34 +1,33 @@
 import React, { Component } from 'react';
 
 const INITIAL_STATE = {
-  name: "",
-  number: ""
+  name: '',
+  number: '',
 };
 
 export class PhoneBook extends Component {
-  state = {    
-    ...INITIAL_STATE
-  }
-
+  state = {
+    ...INITIAL_STATE,
+  };
 
   inputChange = e => {
-    const { name, value } = e.target
-    this.setState({[name]: value});
-  }
+    const { name, value } = e.target;
+    this.setState({ [name]: value });
+  };
 
   nameSubmit = e => {
     e.preventDefault();
     console.log(`Add ${this.state.name}`);
     this.props.newContact({ ...this.state });
     this.reset();
-  }
+  };
 
   reset = () => {
-    this.setState({ name: '', number: ''})
-  }
+    this.setState({ name: '', number: '' });
+  };
 
   render() {
-    const {name, number} = this.state;
+    const { name, number } = this.state;
 
     return (
       <form onSubmit={this.nameSubmit}>
@@ -56,11 +55,8 @@ export class PhoneBook extends Component {
             onChange={this.inputChange}
           />
         </label>
-        <button type='submit'>Add contact</button>
-      
-
+        <button type="submit">Add contact</button>
       </form>
-    )
- 
+    );
   }
 }

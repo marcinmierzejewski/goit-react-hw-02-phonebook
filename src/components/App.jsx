@@ -23,11 +23,8 @@ export class App extends Component {
   addNewContact = ({ name, number }) => {
     const { contacts } = this.state;
 
-    this.setState({ 
-      contacts: [
-        ...contacts, 
-        { name, number, id: nanoid() }
-      ] 
+    this.setState({
+      contacts: [...contacts, { name, number, id: nanoid() }],
     });
 
     console.log(contacts);
@@ -38,9 +35,15 @@ export class App extends Component {
   };
 
   viewContacts = () => {
-    const { contacts, filter } = this.state
-    return contacts.filter(cont => cont.name.includes(filter))
-  }
+    const { contacts, filter } = this.state;
+    return contacts.filter(cont => cont.name.includes(filter));
+  };
+
+  deleteContact = id => () => {
+    this.setState(({ contacts }) => ({
+      contacts: contacts.filter(cont => cont.id !== id),
+    }));
+  };
 
   render() {
     return (
@@ -49,7 +52,10 @@ export class App extends Component {
         <PhoneBook newContact={this.addNewContact} />
         <h2>Contacts</h2>
         <SearchFilter searchByName={this.searchByName} />
-        <ContactsList contacts={this.viewContacts()} />
+        <ContactsList
+          contacts={this.viewContacts()}
+          deleteItem={this.deleteContact}
+        />
       </div>
     );
   }
