@@ -1,0 +1,10 @@
+.contactItem {
+  margin-left: 10px;
+  height: 30px;
+}
+
+.contactName {
+  display: inline-block;
+  width: 150px;
+  
+}

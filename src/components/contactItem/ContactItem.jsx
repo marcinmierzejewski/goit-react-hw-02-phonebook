@@ -1,13 +1,15 @@
 import PropTypes from 'prop-types';
+import styles from './ContactItem.module.css'
 
 export const ContactItem = ({ id, name, number, deleteItem }) => {
+  const { contactItem, contactName } = styles
   return (
-    <li>
-      {name}: {number}{' '}
+    <li className={contactItem}>
+      <span className={contactName}>{name}: {number}</span>{' '}
       <a href={`tel:${number}`}><button>Call</button></a>
-      <button type="button" onClick={deleteItem(id)}>
-        {' '}
-        X{' '}
+      <button type="button" onClick={() => {
+        deleteItem(id)}}>
+        Delete
       </button>
     </li>
   );

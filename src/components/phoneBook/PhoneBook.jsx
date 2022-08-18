@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import styles from './PhoneBook.module.css'
 
 const INITIAL_STATE = {
   name: '',
@@ -29,12 +30,13 @@ export class PhoneBook extends Component {
 
   render() {
     const { name, number } = this.state;
+    const { form, label, input, addBtn }  = styles
 
     return (
-      <form onSubmit={this.valueSubmit}>
-        <label>
+      <form className={form} onSubmit={this.valueSubmit}>
+        <label className={label}>
           Name
-          <input
+          <input className={input}
             type="text"
             name="name"
             value={name}
@@ -44,9 +46,9 @@ export class PhoneBook extends Component {
             required
           />
         </label>
-        <label>
+        <label className={label}>
           Number
-          <input
+          <input className={input}
             type="tel"
             name="number"
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -56,7 +58,7 @@ export class PhoneBook extends Component {
             onChange={this.inputChange}
           />
         </label>
-        <button type="submit">Add contact</button>
+        <button className={addBtn} type="submit">Add contact</button>
       </form>
     );
   }
