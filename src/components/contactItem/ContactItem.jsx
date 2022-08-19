@@ -6,11 +6,13 @@ export const ContactItem = ({ id, name, number, deleteItem }) => {
   return (
     <li className={contactItem}>
       <span className={contactName}>{name}: {number}</span>{' '}
-      <a href={`tel:${number}`}><button className={btn}> Call</button></a>
-      <button type="button" className={btn} onClick={() => {
-        deleteItem(id)}}>
-        Delete
-      </button>
+      <div>
+        <a href={`tel:${number}`}><button className={btn}> Call</button></a>
+        <button type="button" className={btn} onClick={() => {
+          deleteItem(id)}}>
+          Delete
+        </button>
+      </div>
     </li>
   );
 };

@@ -1,11 +1,10 @@
 .contactItem {
   margin-left: 10px;
-  height: 30px;
+  margin-bottom: 10px;
 }
 
 .contactName {
   display: inline-block;
-  width: 150px;
   
 }
 .btn {
